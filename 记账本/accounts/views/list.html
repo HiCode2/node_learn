@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    h2 {
+        padding-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 20px;
+    }
+    h4 {
+        margin-bottom: 10px;
+    }
+</style>
+<body>
+<h2>添加记录</h2>
+<form action="/account/create">
+    <div>
+        <h4>事项</h4>
+        <input type="text" name="title" id="title"/>
+    </div>
+    <div>
+        <h4>发生时间</h4>
+        <input type="text" name="time" id="time"/>
+    </div>
+    <div>
+        <h4>类型</h4>
+        <select name="type" id="type">
+            <option value="1">收入</option>
+            <option value="2">支出</option>
+        </select>
+    </div>
+    <div>
+        <h4>金额</h4>
+        <input type="text" name="money" id="money"/>
+    </div>
+    <div>
+        <h4>备注</h4>
+        <textarea name="remark" id="remark" cols="30" rows="10"></textarea>
+    </div>
+    <div>
+        <button id="submit">提交</button>
+    </div>
+</form>
+</body>
+</html>

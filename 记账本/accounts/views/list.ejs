@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    h2 {
+        padding-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 20px;
+    }
+    .listDiv {
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+    }
+    .time {
+        padding: 10px 15px;
+        background-color: #e2cecf;
+        color: #6b5959;
+    }
+    .content {
+        padding: 10px 20px;
+    }
+    .btn {
+        background-color: orange;
+        color: #fff;
+        display: inline-block;
+    }
+</style>
+<body>
+<h2>记账本</h2>
+<button class="addBtn">添加数据</button>
+<% data.forEach(item => { %>
+    <div class="listDiv">
+        <div class="time"><%= moment(item.time).format('YYYY-MM-DD')%></div>
+        <div class="content">
+            <span><%= item.title%></span>
+            <div class="btn">
+                <span><%= item.type === '-1' ? '支出' : '收入'%></span>
+            </div>
+            <span><%= item.remark%></span>
+            <a href="/account/<%= item._id%>">删除</a>
+        </div>
+    </div>
+<% }) %>
+</body>
+<script>
+    const addBtn = document.querySelector('.addBtn')
+    addBtn.addEventListener('click', () => {
+        window.location.href = '/account/create'
+    })
+</script>
+</html>
